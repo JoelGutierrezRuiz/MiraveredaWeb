@@ -57,6 +57,14 @@
     z-index: -1;
     flex-direction: column;
 }
+#float2{
+    display: flex;
+    align-items: center;
+}
+#componentes{
+    text-align: center;
+    
+}
 #inforUser{
     background-color: #D9D9D9;
     width: 50%;
@@ -97,6 +105,11 @@
     width:350px;
     height: 100px;
     cursor: pointer;
+}
+
+.sinFiltro{
+    text-decoration: none;
+    color: black;
 }
 .settingImage-icon,.settingImage-arrow{
     width:50px;

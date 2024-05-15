@@ -17,22 +17,34 @@
                 <img class="user-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Foto_Perfil_.jpg">
             </div>
         </div>
-
-        <div class="settings-container">
-            <div class="setting-container">
-                <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/256/1077/1077063.png">
-                <h3 class="setting-text">Mi cuenta</h3>
-                <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+        <div id="float2">
+            <div class="settings-container">
+                <a class="sinFiltro" href="miCuenta.html">
+                    <div class="setting-container">
+                        <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/256/1077/1077063.png">
+                        <h3 class="setting-text">Mi cuenta</h3>
+                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                    </div>
+                </a>
+                <a class="sinFiltro" href="gestionarUsuarios.html">
+                    <div class="setting-container">
+                        <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/512/359/359657.png">
+                        <h3 class="setting-text">Gestionar usuarios</h3>
+                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                    </div>
+                </a>
+                <a class="sinFiltro" href="gestionarContenido.html">
+                    <div class="setting-container">
+                        <img class="settingImage-icon" src="https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png">
+                        <h3 class="setting-text">Gestionar contenido</h3>
+                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                    </div>    
+                </a>
             </div>
-            <div class="setting-container">
-                <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/512/359/359657.png">
-                <h3 class="setting-text">Gestionar usuarios</h3>
-                <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
-            </div>
-            <div class="setting-container">
-                <img class="settingImage-icon" src="https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png">
-                <h3 class="setting-text">Gestionar contenido</h3>
-                <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+            <div id="componentes">
+                <label>Buscador</label>
+                <input id="nombrePeli" type="Pon aqui el nombre del usuario">
+                <button onclick="getPelicula()" id="botonBuscar">Buscar</button>
             </div>
         </div>
     </div>
