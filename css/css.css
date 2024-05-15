@@ -28,13 +28,11 @@
     color: #FFAC41;
     font-style: italic;
 }
-
 #float{
     display: flex;
     justify-content: center;
     z-index: -1;
 }
-
 #cuadroLogIn{
     text-align: center;
     padding-top: 20px;
