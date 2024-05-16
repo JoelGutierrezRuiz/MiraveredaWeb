@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/settings.css" />
+    <title>Crear Contenido</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="userInfo-container2">
+            <h1 class="titulo">MVEREDA admin</h1>
+            <div class="userImg-container">
+                <img class="user-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Foto_Perfil_.jpg">
+            </div>
+        </div>
+        <div id="float">
+            <div id="inforUser">
+                <img id="userImg" src="https://static.vecteezy.com/system/resources/thumbnails/005/919/290/small/video-play-film-player-movie-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
+                <br>
+                <br>
+                <p id="textoInf">Imagen:</p>
+                <br>
+                <input id="imageUrl" type="text" placeholder="Pon aqui la URL de la Imagen">
+                <br>
+                <button id="probarImagen" onclick="cargarImagen()">Probar Imagen</button>
+                <br>
+                <br>
+                <p id="textoInf">Titulo:</p>
+                <br>
+                <input id="nombre" type="text" placeholder="Pon aqui el Titulo">
+                <br>
+                <br>
+                <p id="textoInf">Descripción:</p>
+                <br>
+                <input id="desc" type="text" placeholder="Pon aqui la Descripción">
+                <br>
+                <br>
+                <div id="espaciado_select">
+                    <label id="textoInf" for="optionSelect">Tipo:</label>
+                    <select id="optionSelect" onchange="showInputs()">
+                         <option value="">Seleccione una opción</option>
+                         <option value="option1">Corto</option>
+                         <option value="option2">Pelicula</option>
+                         <option value="option3">Capitulo</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <p id="textoInf">Fecha:</p>
+                <br>
+                <input id="fecha" type="date">
+                <br>
+                <br>
+                <p id="textoInf">Nombre Director:</p>
+                <br>
+                <input id="nombre_dire" type="text" placeholder="Pon aqui el Nombre del Director">
+                <br>
+                <br>
+                <p id="textoInf">Género:</p>
+                <br>
+                <input id="genero" type="text" placeholder="Pon aqui el Género">
+                <br>
+                <br>
+                <p id="textoInf">Duración:</p>
+                <br>
+                <input id="duracion" type="text" placeholder="Pon aqui la duración en minutos">
+                <br>
+                <br>
+                <p id="textoInf">Valoración Media:</p>
+                <br>
+                <input id="valoracion" type="text" placeholder="Pon aqui la Valoración Media">
+                <br>
+                <br>
+                <div id="inputGroups">
+                    <div id="option1Inputs" class="input-group">
+                    </div>
+                    <div id="option2Inputs" class="input-group">
+                        <p id="textoInf">Disponible Hasta:</p>
+                        <br>
+                        <input id="disponible_hasta" type="date">
+                        <br>
+                        <br>
+                    </div>
+                    <div id="option3Inputs" class="input-group">
+                        <p id="textoInf">Disponibilidad:</p>
+                        <br>
+                        <input id="disponible" type="text" placeholder="Pon S o N">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <button id="guardarCambios">Guardar Cambios</button>
+        </div>
+    </div>
+    <script src="../jvscript/contenido.js"></script>
+</body>
+</html>

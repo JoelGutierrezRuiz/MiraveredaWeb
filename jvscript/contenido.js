@@ -84,3 +84,28 @@ function crearPelicula(pelicula){
     contenedorPrincipal.appendChild(contenedorPeli);
 
 }
+function cargarImagen() {
+
+  const url = document.getElementById('imageUrl').value;
+
+  // Crear un nuevo elemento de imagen
+  const img = document.getElementById('userImg');
+  img.src = url;
+  img.alt = 'Imagen proporcionada';
+
+}
+function showInputs() {
+  // Obtener el valor del select
+  const selectedOption = document.getElementById('optionSelect').value;
+
+  // Ocultar todos los grupos de inputs
+  const inputGroups = document.getElementsByClassName('input-group');
+  for (let group of inputGroups) {
+      group.style.display = 'none';
+  }
+
+  // Mostrar el grupo de inputs correspondiente a la opción seleccionada
+  if (selectedOption) {
+      document.getElementById(selectedOption + 'Inputs').style.display = 'block';
+  }
+}

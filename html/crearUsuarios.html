@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/settings.css" />
+    <title>Crear Usuario</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="userInfo-container2">
+            <h1 class="titulo">MVEREDA admin</h1>
+            <div class="userImg-container">
+                <img class="user-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Foto_Perfil_.jpg">
+            </div>
+        </div>
+        <div id="float">
+            <div id="inforUser">
+                <p id="textoInf">Nombre:</p>
+                <br>
+                <input id="nombre" type="text" placeholder="Nombre">
+                <br>
+                <br>
+                <p id="textoInf">Apellidos:</p>
+                <br>
+                <input id="apellidos" type="text" placeholder="Apellidos">
+                <br>
+                <br>
+                <p id="textoInf">Usuario:</p>
+                <br>
+                <input id="usuario" type="text" placeholder="Nombre de usuario">
+                <br>
+                <br>
+                <p id="textoInf">Contraseña:</p>
+                <br>
+                <input id="contraseña" type="password" placeholder="Contraseña">
+                <br>
+                <br>
+                <p id="textoInf">Email:</p>
+                <br>
+                <input id="email" type="email" placeholder="Email">
+                <br>
+                <br>
+                <div id="espaciado_select">
+                    <label id="textoInf" for="optionSelect">Tipo:</label>
+                    <select id="optionSelect" onchange="showInputs()">
+                         <option value="">Seleccione una opción</option>
+                         <option value="option2">Cliente</option>
+                         <option value="option3">Admin</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <div id="inputGroups">
+                    <div id="option2Inputs" class="input-group">
+                        <p id="textoInf">Fecha de Nacimiento:</p>
+                        <br>
+                        <input id="fechaNac" type="date">
+                        <br>
+                        <br>
+                        <p id="textoInf">Nº de Tarjeta:</p>
+                        <br>
+                        <input id="nTarjeta" type="text" placeholder="Numero de Tarjeta">
+                        <br>
+                        <br>
+                        <p id="textoInf">CP:</p>
+                        <br>
+                        <input id="cp" type="text" placeholder="Código Postal">
+                        <br>
+                        <br>
+                        <p id="textoInf">Domicilio:</p>
+                        <br>
+                        <input id="domicilio" type="text" placeholder="Domicilio">
+                        <br>
+                        <br>
+                    </div>
+                    <div id="option3Inputs" class="input-group">
+                        <p id="textoInf">Nivel:</p>
+                        <br>
+                        <input id="nivel" type="text" placeholder="Pon un nivel (1-5)">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <button id="guardarCambios">Guardar Cambios</button>
+        </div>
+    </div>
+    <script src="../jvscript/contenido.js"></script>
+</body>
+</html>
