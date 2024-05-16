@@ -74,6 +74,18 @@
     font-style: italic;
     font-weight: bold;
 }
+#inforUser input{
+    border: none;
+    background-color: #D9D9D9;
+    height: 30px;
+    padding-left: 10px;
+}
+#inforUser input::placeholder{
+    font-style: italic;
+    font-weight: bold;
+    background-color: #D9D9D9;
+    border:none;
+}
 #textoInf{
     text-align: left;
     margin-left: 5%;

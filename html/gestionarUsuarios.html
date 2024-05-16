@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="../css/gestorContenido.css" />
     <title>Gestionar Usuarios</title>
 </head>
 <body>
     <div class="main-container">
+
+
         <div class="userInfo-container">
             <h1 class="titulo">MVEREDA admin</h1>
             <div class="bienvenida-container">
@@ -17,36 +19,55 @@
                 <img class="user-img" src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Foto_Perfil_.jpg">
             </div>
         </div>
-        <div id="float2">
-            <div class="settings-container">
-                <a class="sinFiltro" href="miCuenta.html">
-                    <div class="setting-container">
-                        <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/256/1077/1077063.png">
-                        <h3 class="setting-text">Mi cuenta</h3>
-                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
-                    </div>
-                </a>
-                <a class="sinFiltro" href="gestionarUsuarios.html">
-                    <div class="setting-container">
-                        <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/512/359/359657.png">
-                        <h3 class="setting-text">Gestionar usuarios</h3>
-                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
-                    </div>
-                </a>
-                <a class="sinFiltro" href="gestionarContenido.html">
-                    <div class="setting-container">
-                        <img class="settingImage-icon" src="https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png">
-                        <h3 class="setting-text">Gestionar contenido</h3>
-                        <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
-                    </div>    
-                </a>
+        <div class="separador">
+
+
+
+            <div id="settings-main-container">
+                <div class="settings-container">
+                    <a class="sinFiltro" href="miCuenta.html">
+                        <div class="setting-container">
+                            <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/256/1077/1077063.png">
+                            <h3 class="setting-text">Mi cuenta</h3>
+                            <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                        </div>
+                    </a>
+                    <a class="sinFiltro" href="gestionarUsuarios.html">
+                        <div id="paginaCorrecta" class="setting-container" class="setting-container">
+                            <img class="settingImage-icon" src="https://cdn-icons-png.flaticon.com/512/359/359657.png">
+                            <h3 class="setting-text">Gestionar usuarios</h3>
+                            <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                        </div>
+                    </a>
+                    <a class="sinFiltro" href="gestionarContenido.html">
+                        <div class="setting-container">
+                            <img class="settingImage-icon" src="https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png">
+                            <h3 class="setting-text">Gestionar contenido</h3>
+                            <img class="settingImage-arrow" src="https://cdn.iconscout.com/icon/free/png-256/free-right-arrow-2693174-2234857.png">
+                        </div>    
+                    </a>
+                </div>
             </div>
-            <div id="componentes">
-                <label>Buscador</label>
-                <input id="nombreUser" type="Pon aqui el nombre del usuario">
-                <button id="botonBuscar">Buscar</button>
+
+
+            <div class="result-main-container">
+
+                <div class="buscador-container">
+
+                    <div class="buscador-input-container">
+                        <input id="input-buscador">
+                        <button onclick="getPelicula()">Buscar</button>
+                    </div>
+
+                    
+                </div>
+
+
+                <div id="result-container">
+                </div>
+
+
             </div>
-        </div>
     </div>
     <script src="../jvscript/main.js"></script>
 </body>
