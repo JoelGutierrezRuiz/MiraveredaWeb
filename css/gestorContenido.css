@@ -128,38 +128,6 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .titulo{
     flex-grow: .15;
     font-size: 20px;
@@ -177,9 +145,6 @@ body{
     display: flex;
     justify-content: center;
 }
-
-
-
 
 
 .result-main-container{
@@ -200,10 +165,6 @@ body{
 }
 
 
-
-
-
-
 .contenedor-peli{
     display: flex;
     width: 100%;
@@ -215,6 +176,7 @@ body{
     align-items: center;
     padding: 10px;
 }
+
 
 .imagen-peli{
     width: 80px;
