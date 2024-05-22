@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="../css/crudContenido.css" />
     <title>Crear Contenido</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
                 <br>
                 <p id="textoInf">Descripción:</p>
                 <br>
-                <input id="desc" type="text" placeholder="Pon aqui la Descripción">
+                <textarea id="desc" type="text" placeholder="Pon aqui la Descripción"></textarea>
                 <br>
                 <br>
                 <p id="textoInf">Duración:</p>
@@ -56,9 +57,18 @@
                 <input id="fechaEst" type="date" placeholder="fecha de Estreno">
                 <br>
                 <br>
-                <p id="textoInf">Genero:</p>
                 <br>
-                <input id="genero" type="text" placeholder="Pon aqui el Género">
+                <p id="textoInf">Disponibilidad:</p>
+                <br>
+                <input id="disponibilidad" type="date">
+                <br>
+                <br>
+                <div id="espaciado_select">
+                    <label id="textoInf" for="genero">Género:</label>
+                    <select id="genero" onchange="showInputs()">
+                         <option value="Pelicula">Pelicula</option>
+                    </select>
+                </div>
                 <br>
                 <br>
                 <p id="textoInf">Director:</p>
@@ -66,69 +76,26 @@
                 <input id="director" type="text" placeholder="Pon aqui el director">
                 <br>
                 <br>
-                <p id="textoInf">Tarifa:</p>
-                <br>
-                <input id="tarifa" type="number" placeholder="Tarifa">
-                <br>
-                <br>
                 <div id="espaciado_select">
-                    <label id="textoInf" for="optionSelect">Tipo:</label>
-                    <select id="optionSelect" onchange="showInputs()">
-                         <option value="">Seleccione una opción</option>
-                         <option value="Corto">Corto</option>
+                    <label id="textoInf" for="tarifa">Tarifa:</label>
+                    <select id="tarifa" onchange="showInputs()">
                          <option value="Pelicula">Pelicula</option>
-                         <option value="Capitulo">Capitulo</option>
                     </select>
                 </div>
                 <br>
                 <br>
-                <p id="textoInf">Nombre Director:</p>
-                <br>
-                <input id="nombre_dire" type="text" placeholder="Pon aqui el Nombre del Director">
-                <br>
-                <br>
-                <p id="textoInf">Género:</p>
-                <br>
-                <input id="genero" type="text" placeholder="Pon aqui el Género">
-                <br>
-                <br>
-                <p id="textoInf">Valoración Media:</p>
-                <br>
-                <input id="valoracion" type="text" placeholder="Pon aqui la Valoración Media">
-                <br>
-                <br>
-                <div id="inputGroups">
-                    <div id="option1Inputs" class="input-group">
-                    </div>
-                    <div id="option2Inputs" class="input-group">
-                        <p id="textoInf">Disponible Hasta:</p>
-                        <br>
-                        <input id="disponible_hasta" type="date">
-                        <br>
-                        <br>
-                    </div>
-                    <div id="option3Inputs" class="input-group">
-                        <p id="textoInf">Disponibilidad:</p>
-                        <br>
-                        <input id="disponible" type="text" placeholder="Pon S o N">
-                        <br>
-                        <br>
-                        <p id="textoInf">Temporada:</p>
-                        <br>
-                        <input id="temp" type="number" placeholder="Temporada">
-                        <br>
-                        <br>
-                        <p id="textoInf">Serie:</p>
-                        <br>
-                        <input id="serie" type="text" placeholder="Pon de que Serie es">
-                        <br>
-                        <br>
-                    </div>
+                <div id="espaciado_select">
+                    <label id="textoInf" for="tipo">Tipo:</label>
+                    <select id="tipo" onchange="showInputs()">
+                         <option value="Pelicula">Pelicula</option>
+                    </select>
                 </div>
+                <br>
+                <br>
             </div>
-            <button id="guardarCambios">Guardar Cambios</button>
+            <button onclick="putContenido()" id="guardarCambios">Guardar Cambios</button>
         </div>
     </div>
-    <script src="../jvscript/gestorContenido.js"></script>
+    <script src="../jvscript/crudContenido.js"></script>
 </body>
 </html>
