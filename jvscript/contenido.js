@@ -3,7 +3,7 @@ function getUsua(nombre) {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log(nombre);
-    fetch(`http://192.168.1.136:8080/usuarios/${nombre}`)
+    fetch(`http://172.30.134.215:8080/usuarios/${nombre}`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -11,11 +11,17 @@ function getUsua(nombre) {
         })
       });
 }
+
+function init(){
+  getUsuarios();
+}
+
+
 function getUsuarios() {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log();
-    fetch(`http://192.168.1.136:8080/usuarios`)
+    fetch(`http://172.30.134.215:8080/usuarios`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -35,6 +41,75 @@ function getUsuario() {
     getUsua(nombre);
   }
 }
+
+function addUsuario() {
+  const idRol = document.getElementById('optionSelect').value;
+  const nombre = document.getElementById('nombre').value;
+  const contrasena = document.getElementById('contraseña').value;
+  const apellidos = document.getElementById('apellidos').value;
+  const email = document.getElementById('email').value;
+  const domicilio = document.getElementById('domicilio').value;
+  const codigoPostal = document.getElementById('CP').value;
+  const fechaNac = document.getElementById('fechaNac').value;
+
+  if (!idRol) {
+    alert('Por favor seleccione un tipo.');
+    return;
+  }
+  
+  const usuario = {
+    idRol: idRol,
+    nombre: nombre,
+    contrasena: contrasena,
+    apellidos: apellidos,
+    email: email,
+    domicilio: domicilio,
+    codigoPostal: codigoPostal,
+    fechaNac: fechaNac
+  };
+
+  // Enviando el objeto Usuario al servidor
+  fetch('http://172.30.134.215:8080/usuarios', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(usuario)
+  }).then(response => response.json())
+    .then(data => console.log('Usuario creado:', data))
+    .catch(error => console.error('Error:', error));
+}
+
+function eliminarUsuario(email, contenedorUsuario) {
+  fetch(`http://172.30.134.215:8080/usuarios/${email}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else if (response.status === 302) { // HTTP Status 302 Found
+      return response.json().then(data => {
+        throw new Error('Usuario no encontrado');
+      });
+    }
+    throw new Error('Error al eliminar el usuario');
+  })
+  .then(data => {
+    if (data) { 
+      contenedorUsuario.remove();
+      console.log('Usuario eliminado correctamente');
+    } else {
+      console.error('No se pudo eliminar el usuario');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
 
 function crearUsuario(usuario){
   console.log(usuario);
@@ -64,6 +139,17 @@ function crearUsuario(usuario){
   puntuacion.classList.add("puntuacion-peli");
   puntuacion.textContent = usuario.email;
 
+  // Crear un botón para eliminar el usuario
+  const botonEliminar = document.createElement("button");
+  botonEliminar.classList.add("boton-eliminar");
+  botonEliminar.textContent = "Eliminar";
+
+  // Agregar un controlador de eventos clic para el botón eliminar
+  botonEliminar.addEventListener("click", function() {
+    eliminarUsuario(usuario.email, contenedorPeli);
+  });
+
+
   const optionsContenedor = document.createElement("div");
   optionsContenedor.classList.add("options-contenedor");
 
@@ -83,6 +169,7 @@ function crearUsuario(usuario){
 
   contenedorPeli.appendChild(imagen)
   contenedorPeli.appendChild(contenedorInfo)
+  contenedorPeli.appendChild(botonEliminar);
   contenedorPeli.appendChild(optionsContenedor)
 
   contenedorPrincipal.appendChild(contenedorPeli);
@@ -99,6 +186,7 @@ function cargarImagen() {
   img.alt = 'Imagen proporcionada';
 
 }
+
 function showInputs() {
   // Obtener el valor del select
   const selectedOption = document.getElementById('optionSelect').value;
@@ -114,3 +202,5 @@ function showInputs() {
       document.getElementById(selectedOption + 'Inputs').style.display = 'block';
   }
 }
+
+init();
