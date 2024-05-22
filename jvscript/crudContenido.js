@@ -17,28 +17,31 @@ let contenido;
 
 
 
-function putContenido(){
+function postContenido(){
 
   const url = "http://localhost:8080/api/v1/insertarContenido"
   const contenido =
   {
-      id:111111111111,
-      imagen:img.value,
-      titulo:tit.value,
+      id:123456,
+      precio:pre.value,
+      idDirector:24,
+      genero:gen.value,
+      id_tarifa:1,
+      fecha:fech.value,
+      puntuacion:punt.value,
       descripcion:desc.value,
       duracion:dur.value,
-      puntuacion:punt.value,
-      precio:pre.value,
-      fecha:fech.value,
-      genero:gen.value,
-      director:24,
-      tarifa:tar.value,
-      tipo:tip.value
+      tipo:tip.value,
+      titulo:tit.value,
+      imagen:img.value,
   }
   console.log(contenido);
 
   const options = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+    },
       body: JSON.stringify(contenido) // Convertir datos a formato JSON antes de enviarlos
   };
   
