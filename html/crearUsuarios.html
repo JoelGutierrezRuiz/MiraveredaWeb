@@ -58,23 +58,25 @@
                     <label id="textoInf" for="optionSelect">Tipo:</label>
                     <select id="optionSelect" onchange="showInputs()">
                          <option value="">Seleccione una opción</option>
-                         <option value="option2">Cliente</option>
-                         <option value="option3">Admin</option>
+                         <option value="1">Cliente</option>
+                         <option value="2">Admin</option>
                     </select>
                 </div>
                 <br>
                 <br>
                 <div id="inputGroups">
-                    <div id="option2Inputs" class="input-group">
+                    <div id="1Inputs" class="input-group">
                         <p id="textoInf">Nº de Tarjeta:</p>
                         <br>
                         <input id="nTarjeta" type="text" placeholder="Numero de Tarjeta">
                         <br>
                         <br>
                     </div>
+                    <div id="2Inputs" class="input-group">
+                    </div>
                 </div>
             </div>
-            <button id="guardarCambios">Guardar Cambios</button>
+            <button id="guardarCambios" onclick="addUsuario()">Guardar Cambios</button>
         </div>
     </div>
     <script src="../jvscript/contenido.js"></script>
