@@ -16,7 +16,7 @@
         </div>
         <div id="float">
             <div id="inforUser">
-                <img id="userImg" src="https://static.vecteezy.com/system/resources/thumbnails/005/919/290/small/video-play-film-player-movie-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
+                <img onclick="putContenido()" id="userImg" src="https://static.vecteezy.com/system/resources/thumbnails/005/919/290/small/video-play-film-player-movie-solid-icon-illustration-logo-template-suitable-for-many-purposes-free-vector.jpg">
                 <br>
                 <br>
                 <p id="textoInf">Imagen:</p>
@@ -75,9 +75,9 @@
                     <label id="textoInf" for="optionSelect">Tipo:</label>
                     <select id="optionSelect" onchange="showInputs()">
                          <option value="">Seleccione una opción</option>
-                         <option value="option1">Corto</option>
-                         <option value="option2">Pelicula</option>
-                         <option value="option3">Capitulo</option>
+                         <option value="Corto">Corto</option>
+                         <option value="Pelicula">Pelicula</option>
+                         <option value="Capitulo">Capitulo</option>
                     </select>
                 </div>
                 <br>
@@ -129,6 +129,6 @@
             <button id="guardarCambios">Guardar Cambios</button>
         </div>
     </div>
-    <script src="../jvscript/contenido.js"></script>
+    <script src="../jvscript/gestorContenido.js"></script>
 </body>
 </html>
