@@ -6,38 +6,81 @@ function init(){
       .then((res) => res.json())
       .then((data) => {
 
-        data.forEach(element => {
-            crearPelicula(element);
-        });
+function putContenido(){
+
+    const url = "http://localhost:8080/api/v1/insertarContenido"
+
+    const img = document.getElementById("imageUrl").value;
+    const tit = document.getElementById("nombre").value;
+    const desc = document.getElementById("desc").value;
+    const dur = document.getElementById("duracion").value;
+    const punt = document.getElementById("valoMedia").value;
+    const pre = document.getElementById("precio").value;
+    const fech = document.getElementById("fechaEst").value;
+    const gen = document.getElementById("genero").value;
+    const dir = document.getElementById("director").value;
+    const tar = document.getElementById("tarifa").value;
+    const tip = document.getElementById("optionSelect").value;
+
+
+    const contenido =
+    {
+        imagen:img,
+        titulo:tit,
+        descripcion:desc,
+        duracion:dur,
+        puntuacion:punt,
+        precio:pre,
+        fecha:fech,
+        genero:gen,
+        director:dir,
+        tarifa:tar,
+        tipo:tip
+    }
+    console.log(contenido);
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(contenido) // Convertir datos a formato JSON antes de enviarlos
+    };
     
-        console.log();
-      });
+    // Realizar la solicitud Fetch
+    fetch(url, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Respuesta recibida:', data);
+        })
+        .catch(error => {
+            console.error('Error en la solicitud:', error);
+        });
+
+
 
 
 }
 
-init();
+
+
+
 
 
 function getPeli(nombre) {
     console.log(nombre);
-    fetch(`http://localhost:8080/api/v1/getContenido/${nombre}`)
+    fetch(`http://localhost:8080/api/v1/contenido/${nombre}`)
       .then((res) => res.json())
       .then((data) => {
-
-        data.forEach(element => {
-            crearPelicula(element);
-            console.log(element);
-        });
-    
-       
+        crearPelicula(data[0]);
+        console.log();
       });
 }
 
 function getPelicula() {
     let nombre = document.getElementById("input-buscador").value;
-    
-    contenedorPrincipal.innerHTML=""
     getPeli(nombre);
 }
 
@@ -45,15 +88,9 @@ function crearPelicula(pelicula){
     console.log(pelicula);
     
 
+    const contenedorPrincipal = document.getElementById("result-container");
+
     const contenedorPeli = document.createElement("div");
-
-
-    contenedorPeli.onclick = function() {
-        const url = `http://127.0.0.1:5500/html/crearContenido.html?id=${encodeURIComponent(pelicula.id)}`;
-        window.location.href = url; // Cambia esta URL a la que desees
-    };
-
-
     contenedorPeli.classList.add("contenedor-peli");
 
     const contenedorInfo = document.createElement("div");
