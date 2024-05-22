@@ -1,10 +1,9 @@
 
+
 const contenedorPrincipal = document.getElementById("result-container");
 
-function init(){
-    fetch(`http://localhost:8080/api/v1/getContenidos`)
-      .then((res) => res.json())
-      .then((data) => {
+
+
 
 function putContenido(){
 
@@ -66,12 +65,23 @@ function putContenido(){
 
 
 
+function getPelis() {
+  fetch(`http://localhost:8080/api/v1/getContenidos`)
+    .then((res) => res.json())
+    .then((data) => {
+      data.forEach(element => {
+        crearPelicula(element);  
+      });
+      
+    });
+}
 
+getPelis()
 
 
 function getPeli(nombre) {
     console.log(nombre);
-    fetch(`http://localhost:8080/api/v1/contenido/${nombre}`)
+    fetch(`http://localhost:8080/api/v1/getContenido/${nombre}`)
       .then((res) => res.json())
       .then((data) => {
         crearPelicula(data[0]);
@@ -79,18 +89,23 @@ function getPeli(nombre) {
       });
 }
 
+
+
 function getPelicula() {
     let nombre = document.getElementById("input-buscador").value;
     getPeli(nombre);
 }
 
 function crearPelicula(pelicula){
-    console.log(pelicula);
-    
 
-    const contenedorPrincipal = document.getElementById("result-container");
+
 
     const contenedorPeli = document.createElement("div");
+
+    contenedorPeli.addEventListener("click", () => {
+      // Redirigir a la nueva página con parámetros
+      window.location.href = `http://127.0.0.1:5500/html/crearContenido.html?id=${pelicula.id}`;
+    });
     contenedorPeli.classList.add("contenedor-peli");
 
     const contenedorInfo = document.createElement("div");
