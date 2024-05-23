@@ -32,15 +32,7 @@ function getUsuarioById(id) {
 }
 
 function comprobarAnyadiroModificar(){
-  if (idUsuario==null) {
-    addUsuario();
-  }else{
-    updateUsuario();
-  }
-}
-
-function addUsuario() {
-  const usuario = {
+  let usuario = {
     idRol: idRol.value,
     nombre: nombre.value,
     contrasena: contrasena.value,
@@ -50,6 +42,14 @@ function addUsuario() {
     codigoPostal: codigoPostal.value,
     fechaNac: fechaNac.value
   };
+  if (idUsuario==null) {
+    addUsuario(usuario);
+  }else{
+    updateUsuario(usuario);
+  }
+}
+
+function addUsuario(usuario) {
   console.log("entro post")
   if (!idRol) {
       alert('Por favor seleccione un tipo.');
@@ -61,32 +61,46 @@ function addUsuario() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(usuario)
-    }).then(response => response.json())
-      .then(data => console.log('Usuario creado:', data))
+    }).then(response =>{
+      if (!response.ok) {
+          throw new Error('Usuario No Añadido');
+      }
+      return response.json();
+      })
+      .then(data => {
+        console.log('Usuario Creado:', data);
+        // Redirigir a la nueva página HTML
+        window.location.href = 'gestionarUsuarios.html';
+      })
       .catch(error => console.error('Error:', error));
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.textContent = 'El Usuario ya existe';
+      errorMessage.style.display = 'block';
 }
 
-function updateUsuario() {
+function updateUsuario(usuario) {
   console.log("entro put")
-  const usuario2 = {
-    idRol: idRol.value,
-    nombre: nombre.value,
-    contrasena: contrasena.value,
-    apellidos: apellidos.value,
-    email: email.value,
-    domicilio: domicilio.value,
-    codigoPostal: codigoPostal.value,
-    fechaNac: fechaNac.value
-  };
   fetch('http://192.168.1.136:8080/usuarios', {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(usuario2)
-    }).then(response => response.json())
-      .then(data => console.log('Usuario Modificado:', data))
+    body: JSON.stringify(usuario)
+    }).then(response => {
+      if (!response.ok) {
+          throw new Error('Usuario No Modificado');
+      }
+      return response.json();
+      })
+      .then(data => {
+        console.log('Usuario Modificado:', data);
+        // Redirigir a la nueva página HTML
+        window.location.href = 'gestionarUsuarios.html';
+    })
       .catch(error => console.error('Error:', error));
+      const errorMessage = document.getElementById('error-message');
+      errorMessage.textContent = 'El Usuario no se pudo modificar por algun error';
+      errorMessage.style.display = 'block';
 }
 
 
