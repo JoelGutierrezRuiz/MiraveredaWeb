@@ -164,7 +164,7 @@ body{
 }
 
 
-  .boton-eliminar {
+.boton-eliminar {
     margin-left: 10px;
     background-color: #FF7F50;
     color: #fff; 
@@ -173,12 +173,26 @@ body{
     padding: 5px 10px;
     cursor: pointer;
     height: 50%;
-  }
+}
   
-  .boton-eliminar:hover {
+.boton-eliminar:hover {
     background-color: #B53D2F;
-  }
+}
+.boton-modificar {
+    margin-left: 10px;
+    background-color: #B08B2E;
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    height: 50%;
+}
   
+.boton-modificar:hover {
+    background-color: #856D24;
+}
+
 
 .contenedor-peli{
     display: flex;

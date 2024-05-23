@@ -60,15 +60,7 @@ function postContenido(){
           console.error('Error en la solicitud:', error);
       });
 
-
-
-
 }
-
-
-
-
-
 
 
 function getDirector(id) {
