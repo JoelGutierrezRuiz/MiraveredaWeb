@@ -3,7 +3,7 @@ function getUsua(nombre) {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log(nombre);
-    fetch(`http://192.168.1.136:8080/usuarios/${nombre}`)
+    fetch(`http://172.30.134.215:8080/usuarios/${nombre}`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -21,7 +21,7 @@ function getUsuarios() {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log();
-    fetch(`http://192.168.1.136:8080/usuarios`)
+    fetch(`http://172.30.134.215:8080/usuarios`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -29,6 +29,7 @@ function getUsuarios() {
         })
       });
 }
+
 
 
 function getUsuario() {
@@ -41,8 +42,9 @@ function getUsuario() {
   }
 }
 
+
 function eliminarUsuario(email, contenedorUsuario) {
-  fetch(`http://192.168.1.136:8080/usuarios/${email}`, {
+  fetch(`http://172.30.134.215:8080/usuarios/${email}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
@@ -92,7 +94,7 @@ function crearUsuario(usuario){
 
   const anyo = document.createElement("p");
   anyo.classList.add("anyo-peli");
-  anyo.textContent = usuario.apellidos;
+  anyo.textContent = usuario.apellido;
 
   fechaDuracionContenedor.appendChild(anyo)
   
@@ -108,16 +110,6 @@ function crearUsuario(usuario){
   // Agregar un controlador de eventos clic para el botón eliminar
   botonEliminar.addEventListener("click", function() {
     eliminarUsuario(usuario.email, contenedorPeli);
-  });
-
-
-  const botonModificar = document.createElement("button");
-  botonModificar.classList.add("boton-modificar");
-  botonModificar.textContent = "Modificar";
-
-  botonModificar.addEventListener("click", function() {
-    const url = `http://127.0.0.1:5500/html/crearUsuarios.html?id=${encodeURIComponent(usuario.id)}`;
-    window.location.href = url;
   });
 
 
@@ -141,7 +133,6 @@ function crearUsuario(usuario){
   contenedorPeli.appendChild(imagen)
   contenedorPeli.appendChild(contenedorInfo)
   contenedorPeli.appendChild(botonEliminar);
-  contenedorPeli.appendChild(botonModificar);
   contenedorPeli.appendChild(optionsContenedor)
 
   contenedorPrincipal.appendChild(contenedorPeli);
@@ -159,5 +150,20 @@ function cargarImagen() {
 
 }
 
+function showInputs() {
+  // Obtener el valor del select
+  const selectedOption = document.getElementById('optionSelect').value;
+
+  // Ocultar todos los grupos de inputs
+  const inputGroups = document.getElementsByClassName('input-group');
+  for (let group of inputGroups) {
+      group.style.display = 'none';
+  }
+
+  // Mostrar el grupo de inputs correspondiente a la opción seleccionada
+  if (selectedOption) {
+      document.getElementById(selectedOption + 'Inputs').style.display = 'block';
+  }
+}
 
 init();
