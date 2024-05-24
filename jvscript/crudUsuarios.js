@@ -18,7 +18,7 @@ if(idUsuario!=null){
 
 
 function getUsuarioById(id) {
-    fetch(`http://192.168.1.136:8080/usuariosId/${id}`)
+    fetch(`http://localhost:8080/usuariosId/${id}`)
     .then((res) => res.json())
     .then((data) => {
         nombre.value = data.nombre; 
@@ -55,7 +55,7 @@ function addUsuario(usuario) {
       alert('Por favor seleccione un tipo.');
       return;
   }
-  fetch('http://192.168.1.136:8080/usuarios', {
+  fetch('http://localhost:8080/usuarios', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ function addUsuario(usuario) {
 
 function updateUsuario(usuario) {
   console.log("entro put")
-  fetch('http://192.168.1.136:8080/usuarios', {
+  fetch('http://localhost:8080/usuarios', {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json'

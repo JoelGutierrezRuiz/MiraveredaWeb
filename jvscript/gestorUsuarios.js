@@ -3,7 +3,7 @@ function getUsua(nombre) {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log(nombre);
-    fetch(`http://192.168.1.136:8080/usuarios/${nombre}`)
+    fetch(`http://localhost:8080/usuarios/${nombre}`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -21,7 +21,7 @@ function getUsuarios() {
   let contenedorPrincipal = document.getElementById("result-container");
   contenedorPrincipal.innerHTML = "";
   console.log();
-    fetch(`http://192.168.1.136:8080/usuarios`)
+    fetch(`http://localhost:8080/usuarios`)
       .then((res) => res.json())
       .then((data) => {
         data.forEach((usuario) => {
@@ -44,7 +44,7 @@ function getUsuario() {
 
 
 function eliminarUsuario(email, contenedorUsuario) {
-  fetch(`http://192.168.1.136:8080/usuarios/${email}`, {
+  fetch(`http://localhost:8080/usuarios/${email}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'

@@ -69,7 +69,7 @@ function getPelis() {
   fetch(`http://localhost:8080/api/v1/getContenidos`)
     .then((res) => res.json())
     .then((data) => {
-      data.forEach(element => {
+      data.data.forEach(element => {
         crearPelicula(element);  
       });
       

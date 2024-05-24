@@ -4,7 +4,7 @@ function comprobacion(){
     iniciarSesion(email,contrasenya);
 }
 function iniciarSesion(email, contrasenya) {
-  fetch('http://192.168.1.136:8080/usuarios/iniciarSesion', {
+  fetch('http://localhost:8080/usuarios/iniciarSesion', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
